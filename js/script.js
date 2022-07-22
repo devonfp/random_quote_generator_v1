@@ -32,7 +32,7 @@ const quotes = [
   {
   quote: " Love is or it ain't. Thin love ain't love at all.",
   source: 'Toni Morrison',
-  citation: 'Beloved',
+  citation: "Beloved",
   year: 2004
   },
   
@@ -82,13 +82,13 @@ let randomQuotehtml = `
 <p class="quote"> ${randomQuote.quote} </p> 
   <p class="source"> ${randomQuote.source}`
 
-  if (quotes.citation === true) {
+  if (randomQuote.citation === true) {
   `<p class="quote">${randomQuote.quote}</p>
   <p class="source">${randomQuote.source}
   <span class="citation"> ${randomQuote.citation}</span>`
   }
 
-  if (quotes.year === true) {
+  if (randomQuote.year === true) {
   `<p class="quote"> ${randomQuote.quote}</p>
     <p class="source">${randomQuote.source}
       <span class="citation"> ${randomQuote.citation} </span>
