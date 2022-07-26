@@ -33,7 +33,8 @@ const quotes = [
   quote: " Love is or it ain't. Thin love ain't love at all.",
   source: 'Toni Morrison',
   citation: "Beloved",
-  year: 2004
+  year: '2004',
+  tags: " - emotion, love, self-respect, value"
   },
   
   
@@ -42,33 +43,28 @@ const quotes = [
     source: 'Albert Einstein'
   },
 ];
-//console.log(quotes);
 
 
 
 /***
  * `getRandomQuote` function
 ***/
-
 function getRandomQuote() {
 
-  //randomNumber and quotes[randomNumber] are our 2 variables to make this function work.
+  //randomNumber and quotes[randomNumber] are our main variables.
 
   const randomNumber = Math.floor( Math.random() * quotes.length);
-/*This variable ensures that a random number is generated each time
-according to the length of the amount of objects. */
+
   
   console.log(randomNumber, quotes[randomNumber]);
-/*by adding quotes we tell the program to randomly go to each index in that array,
-  // then by using brackets we will insert [randomNumber] to randomly select
-  // an object in that array.*/  
+
 
   return quotes[randomNumber];
-  /*Functions must give something back when they finish. Hence, we end with return. 
-   Without returning, getRandomQuote() will call as undefined.*/ 
-}
 
+}
 getRandomQuote();
+
+
 
 
 /***
@@ -79,26 +75,58 @@ function printQuote() {
 const randomQuote = getRandomQuote();
 
 let randomQuotehtml = `
-<p class="quote"> ${randomQuote.quote} </p> 
+  <p class="quote"> ${randomQuote.quote} </p> 
   <p class="source"> ${randomQuote.source}`
 
-  if (randomQuote.citation === true) {
-  `<p class="quote">${randomQuote.quote}</p>
-  <p class="source">${randomQuote.source}
-  <span class="citation"> ${randomQuote.citation}</span>`
+  if (randomQuote.citation) {
+  randomQuotehtml += `<span class="citation"> ${randomQuote.citation}</span>`
   }
 
-  if (randomQuote.year === true) {
-  `<p class="quote"> ${randomQuote.quote}</p>
-    <p class="source">${randomQuote.source}
-      <span class="citation"> ${randomQuote.citation} </span>
-      <span class="year">${randomQuote.year}</span>
-      </p>`
+  if (randomQuote.year) {
+  randomQuotehtml += `<span class="year">${randomQuote.year}</span>`
   }
+
+  if (randomQuote.tags) {
+    randomQuotehtml += `<span class="tags">${randomQuote.tags}</span>`
+  }
+
+    randomBackground();
+    quoteInterval();
+    /**
+     * Calling these functions in the printQuote() function
+    ensures that it gets printed into the DOM.
+    **/ 
+
 
   document.getElementById('quote-box').innerHTML = randomQuotehtml;
-
 }
+
+
+/** 
+ *`quoteInterval function.`
+ *This ensures we get a new quote at each refresh
+and after clicking "Show Another Quote." 
+**/
+function quoteInterval() {
+  const myInterval = setInterval(printQuote, 10000);
+}
+
+
+
+/**
+ * `randomBackground function.` 
+ * This ensures we get a new quote background color
+at each refresh and after clicking "Show Another Quote." 
+**/
+function randomBackground() {
+
+  red = Math.floor(Math.random() * 256);
+  green = Math.floor(Math.random() * 256);
+  blue = Math.floor(Math.random() * 256);
+  randomRGB = `rgb( ${red}, ${green}, ${blue} )`;
+  document.getElementById('con1').style.backgroundColor = `${randomRGB}`;
+}
+
 
 
 /***
