@@ -124,7 +124,7 @@ function randomBackground() {
   green = Math.floor(Math.random() * 256);
   blue = Math.floor(Math.random() * 256);
   randomRGB = `rgb( ${red}, ${green}, ${blue} )`;
-  document.getElementById('con1').style.backgroundColor = `${randomRGB}`;
+  document.body.style.backgroundColor = `${randomRGB}`;
 }
 
 
