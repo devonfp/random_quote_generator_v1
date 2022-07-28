@@ -107,9 +107,11 @@ let randomQuotehtml = `
  *This ensures we get a new quote after clicking "Show Another Quote." 
 **/
 function quoteInterval() {
-  const myInterval = setInterval(printQuote, 10000);
-  //clearInterval(myInterval);
+  clearInterval(myInterval);
+  myInterval = setInterval(printQuote, 10000);
 }
+
+let myInterval = setInterval(printQuote, 10000);
 
 
 
