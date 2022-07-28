@@ -108,7 +108,7 @@ let randomQuotehtml = `
 **/
 function quoteInterval() {
   const myInterval = setInterval(printQuote, 10000);
-  clearInterval(myInterval);
+  //clearInterval(myInterval);
 }
 
 
