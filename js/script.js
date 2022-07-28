@@ -104,19 +104,19 @@ let randomQuotehtml = `
 
 /** 
  *`quoteInterval function.`
- *This ensures we get a new quote at each refresh
-and after clicking "Show Another Quote." 
+ *This ensures we get a new quote after clicking "Show Another Quote." 
 **/
 function quoteInterval() {
   const myInterval = setInterval(printQuote, 10000);
+  clearInterval(myInterval);
 }
+
 
 
 
 /**
  * `randomBackground function.` 
- * This ensures we get a new quote background color
-at each refresh and after clicking "Show Another Quote." 
+ * This ensures we get a new body background color after clicking "Show Another Quote." 
 **/
 function randomBackground() {
 
